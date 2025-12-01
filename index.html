@@ -16,14 +16,15 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
@@ -37,22 +38,30 @@
         .header h1 {
             font-size: 28px;
             margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .header p {
-            font-size: 14px;
-            opacity: 0.9;
+            font-size: 16px;
+            opacity: 0.95;
         }
 
         .info-box {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
-            padding: 15px;
+            padding: 20px;
             margin: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
         }
 
         .info-box strong {
+            color: #856404;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
             color: #856404;
         }
 
@@ -72,31 +81,33 @@
             font-size: 14px;
         }
 
-        input[type="text"],
-        select {
+        input[type="text"] {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 15px;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
         }
 
-        input[type="text"]:focus,
-        select:focus {
+        input[type="text"]:focus {
             outline: none;
             border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .horario-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            max-height: 300px;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            max-height: 320px;
             overflow-y: auto;
-            padding: 10px;
+            padding: 15px;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 10px;
+            background: #f8f9fa;
         }
 
         .horario-option {
@@ -109,25 +120,34 @@
 
         .horario-label {
             display: block;
-            padding: 10px;
+            padding: 12px 8px;
             text-align: center;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 13px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
             background: white;
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
         }
 
         .horario-option input[type="radio"]:checked + .horario-label {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
             color: white;
             border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
         .horario-label:hover:not(.disabled) {
             border-color: #667eea;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
         }
 
         .horario-label.disabled {
@@ -135,44 +155,62 @@
             color: #999;
             cursor: not-allowed;
             opacity: 0.6;
+            border-color: #e0e0e0;
         }
 
         .horario-label .vagas {
-            font-size: 10px;
-            display: block;
-            margin-top: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 2px 6px;
+            margin-top: 2px;
+        }
+
+        .horario-label:not(.disabled) .vagas {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .horario-label.disabled .vagas {
+            background: #f8d7da;
+            color: #721c24;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
         }
 
         .submit-btn:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
+            opacity: 0.7;
         }
 
         .message {
-            padding: 15px;
+            padding: 15px 20px;
             margin: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
+            font-weight: 500;
             display: none;
+            animation: fadeIn 0.3s ease;
         }
 
         .message.success {
@@ -187,28 +225,47 @@
             border: 1px solid #f5c6cb;
         }
 
+        .message.info {
+            background: #d1ecf1;
+            color: #c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .vagas-info {
             text-align: center;
-            padding: 15px;
-            background: #e8f5e9;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8fe9 0%, #d4edda 100%);
             margin: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             color: #2e7d32;
+            border: 2px solid #c3e6cb;
+        }
+
+        .vagas-info.critical {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border-color: #f5c6cb;
         }
 
         .loading {
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             color: #667eea;
+            font-size: 16px;
         }
 
         .spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
@@ -220,89 +277,144 @@
 
         .admin-section {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 25px;
             margin: 20px;
-            border-radius: 8px;
-            border-top: 3px solid #667eea;
+            border-radius: 12px;
+            border-top: 4px solid #667eea;
         }
 
         .admin-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #333;
-            font-size: 18px;
+            font-size: 20px;
+            text-align: center;
         }
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .stat-card {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
             border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .stat-card .number {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: #667eea;
+            margin-bottom: 5px;
         }
 
         .stat-card .label {
-            font-size: 12px;
+            font-size: 13px;
             color: #666;
-            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .refresh-btn {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 15px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
         }
 
         .refresh-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+            box-shadow: 0 6px 20px rgba(23, 162, 184, 0.3);
+        }
+
+        .refresh-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .form-content {
+                padding: 20px;
+            }
+
+            .horario-grid {
+                grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .horario-label {
+                padding: 10px 6px;
+                font-size: 13px;
+                min-height: 50px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- HEADER -->
         <div class="header">
             <h1>🩸 Doação Voluntária de Sangue</h1>
-            <p>Faça sua inscrição e salve vidas!</p>
+            <p>Faça sua inscrição e ajude a salvar vidas! 💉</p>
         </div>
 
+        <!-- INFORMAÇÕES IMPORTANTES -->
         <div class="info-box">
-            <strong>⚠️ Informações Importantes:</strong><br>
-            • Limite de <strong>50 participantes</strong><br>
-            • Apenas <strong>2 pessoas por horário</strong><br>
-            • Horários disponíveis: 07h30 às 11h30 (intervalos de 10min)
+            <strong>⚠️ Informações Importantes:</strong>
+            <ul>
+                <li>Limite de <strong>50 participantes</strong> no total</li>
+                <li>Apenas <strong>2 pessoas por horário</strong></li>
+                <li>Horários disponíveis: <strong>07h30 às 11h30</strong> (a cada 10 minutos)</li>
+                <li>Traga documento com foto e esteja em jejum de 2 horas</li>
+            </ul>
         </div>
 
+        <!-- CONTADOR DE VAGAS -->
         <div class="vagas-info" id="vagasInfo">
             <div class="spinner"></div>
-            Carregando informações...
+            <div>Carregando informações do sistema...</div>
         </div>
 
+        <!-- MENSAGENS -->
         <div id="messageBox" class="message"></div>
 
-        <form id="doacaoForm" class="form-content" style="display:none;">
+        <!-- FORMULÁRIO -->
+        <form id="doacaoForm" class="form-content" style="display: none;">
             <div class="form-group">
                 <label for="nomeDoador">Nome Completo do Doador *</label>
-                <input type="text" id="nomeDoador" name="nomeDoador" required>
+                <input type="text" id="nomeDoador" name="nomeDoador" placeholder="Ex: João Silva Santos" required>
             </div>
 
             <div class="form-group">
@@ -311,223 +423,189 @@
             </div>
 
             <div class="form-group">
-                <label for="nomeAluno">Nome do Aluno(a) *</label>
-                <input type="text" id="nomeAluno" name="nomeAluno" required>
+                <label for="nomeAluno">Nome do Aluno(a) Responsável *</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" placeholder="Ex: Maria Oliveira" required>
             </div>
 
             <div class="form-group">
                 <label for="turma">Turma *</label>
-                <input type="text" id="turma" name="turma" placeholder="Ex: 3º MA" required>
+                <input type="text" id="turma" name="turma" placeholder="Ex: 3º A" required>
             </div>
 
             <div class="form-group">
-                <label>Escolha o Horário *</label>
+                <label>Escolha o Horário de Atendimento *</label>
                 <div class="horario-grid" id="horariosGrid">
-                    <!-- Horários serão gerados via JavaScript -->
+                    <!-- Horários serão carregados dinamicamente -->
                 </div>
             </div>
 
             <button type="submit" class="submit-btn" id="submitBtn">
-                Confirmar Inscrição
+                💉 Confirmar Inscrição
             </button>
         </form>
 
+        <!-- PAINEL ADMINISTRATIVO -->
         <div class="admin-section">
-            <h3>📊 Estatísticas em Tempo Real</h3>
+            <h3>📊 Painel de Controle - Atualização em Tempo Real</h3>
 
-            <div class="stats">
+            <div class="stats" id="statsContainer">
                 <div class="stat-card">
                     <div class="number" id="totalInscricoes">-</div>
-                    <div class="label">Inscrições</div>
+                    <div class="label">Inscrições Confirmadas</div>
                 </div>
                 <div class="stat-card">
                     <div class="number" id="vagasRestantes">-</div>
-                    <div class="label">Vagas Restantes</div>
+                    <div class="label">Vagas Disponíveis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="horariosOcupados">-</div>
+                    <div class="label">Horários Ocupados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" id="horariosDisponiveis">-</div>
+                    <div class="label">Horários Livres</div>
                 </div>
             </div>
 
-            <button class="refresh-btn" onclick="carregarDados()">
-                🔄 Atualizar Dados
+            <button class="refresh-btn" id="refreshBtn" onclick="carregarDados()">
+                🔄 Atualizar Dados do Sistema
             </button>
+
+            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: #666;">
+                <small>Última atualização: <span id="ultimaAtualizacao">-</span></small>
+            </div>
         </div>
     </div>
 
     <script>
-        // ⚠️ COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWZuZ6x-SQEC5FlaaUbLZNirItqumqeDS7rMX-ulTNgd_ykSnuDDjIL7YHS-jZWDi6/exec';
+        // ========================================
+        // CONFIGURAÇÃO - COLE A URL DO SEU SCRIPT AQUI
+        // ========================================
+        const SCRIPT_URL = 'COLE_AQUI_A_URL_DO_SEU_GOOGLE_APPS_SCRIPT';
+
+        // Verificar se a URL foi configurada
+        if (SCRIPT_URL === 'COLE_AQUI_A_URL_DO_SEU_GOOGLE_APPS_SCRIPT') {
+            document.getElementById('vagasInfo').innerHTML = `
+                <div style="color: #721c24; background: #f8d7da; padding: 20px; border-radius: 8px; border: 1px solid #f5c6cb;">
+                    <strong>⚠️ CONFIGURAÇÃO PENDENTE</strong><br>
+                    <br>
+                    Você precisa colar a URL do Google Apps Script no código JavaScript.<br>
+                    <br>
+                    1. Vá no Google Apps Script<br>
+                    2. Clique em "Implantar" → "Gerenciar implantações"<br>
+                    3. Copie a URL da Web App<br>
+                    4. Substitua "COLE_AQUI_A_URL_DO_SEU_GOOGLE_APPS_SCRIPT" por essa URL<br>
+                    5. Salve o arquivo no GitHub
+                </div>
+            `;
+            document.getElementById('doacaoForm').style.display = 'none';
+            throw new Error('URL do script não configurada');
+        }
 
         let dadosAtuais = null;
+        let carregando = false;
 
-        // Gerar horários
-        function gerarHorarios() {
-            const horarios = [];
-            let hora = 7;
-            let minuto = 30;
-
-            while (hora < 11 || (hora === 11 && minuto <= 30)) {
-                const horarioStr = `${String(hora).padStart(2, '0')}:${String(minuto).padStart(2, '0')}`;
-                horarios.push(horarioStr);
-
-                minuto += 10;
-                if (minuto >= 60) {
-                    minuto = 0;
-                    hora++;
-                }
-            }
-
-            return horarios;
-        }
-
-        // Carregar dados do Google Sheets
+        // ========================================
+        // CARREGAR DADOS DO GOOGLE SHEETS
+        // ========================================
         async function carregarDados() {
+            if (carregando) return;
+            carregando = true;
+
             try {
-                mostrarMensagem('Carregando dados...', 'info');
+                // Mostrar loading
+                document.getElementById('vagasInfo').innerHTML = `
+                    <div class="spinner"></div>
+                    <div>Conectando com o sistema... <span id="loadingDots"></span></div>
+                `;
+
+                // Animação de pontos
+                let dots = 0;
+                const interval = setInterval(() => {
+                    const loadingDots = document.getElementById('loadingDots');
+                    if (loadingDots) {
+                        loadingDots.textContent = '.'.repeat((dots % 4) + 1);
+                        dots++;
+                    }
+                }, 500);
 
                 const response = await fetch(SCRIPT_URL);
-                const data = await response.json();
 
-                if (!data.success) {
-                    throw new Error(data.message);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
 
-                dadosAtuais = data;
-                renderizarHorarios(data.horarios);
-                atualizarEstatisticas(data);
+                const data = await response.json();
+                clearInterval(interval);
 
-                document.getElementById('doacaoForm').style.display = 'block';
-                document.getElementById('messageBox').style.display = 'none';
+                if (!data.success) {
+                    throw new Error(data.message || 'Erro desconhecido do servidor');
+                }
+
+                // Sucesso! Processar dados
+                dadosAtuais = data;
+                renderizarInterface(data);
+                atualizarTimestamp();
+
+                // Mostrar formulário se ainda tem vagas
+                if (data.vagasRestantes > 0) {
+                    document.getElementById('doacaoForm').style.display = 'block';
+                } else {
+                    document.getElementById('doacaoForm').style.display = 'none';
+                }
+
+                mostrarMensagem('✅ Dados atualizados com sucesso!', 'success');
 
             } catch (error) {
-                mostrarMensagem('Erro ao carregar dados: ' + error.message, 'error');
-                console.error(error);
+                clearInterval(interval);
+                console.error('Erro ao carregar dados:', error);
+
+                document.getElementById('vagasInfo').innerHTML = `
+                    <div style="color: #721c24; padding: 15px;">
+                        <strong>❌ Erro de Conexão</strong><br><br>
+                        Não foi possível conectar com o sistema.<br>
+                        Verifique se a URL do Google Apps Script está correta.<br><br>
+                        <small>Erro: ${error.message}</small>
+                    </div>
+                `;
+
+                mostrarMensagem('❌ Erro ao conectar com o sistema. Tente novamente.', 'error');
+                document.getElementById('doacaoForm').style.display = 'none';
+            } finally {
+                carregando = false;
             }
         }
 
-        // Renderizar horários
-        function renderizarHorarios(horariosData) {
-            const grid = document.getElementById('horariosGrid');
-            const horarios = gerarHorarios();
+        // ========================================
+        // RENDERIZAR INTERFACE
+        // ========================================
+        function renderInterface(data) {
+            // Atualizar contador de vagas
+            atualizarVagas(data);
 
-            grid.innerHTML = '';
+            // Renderizar horários
+            renderizarHorarios(data.horarios);
 
-            horarios.forEach(horario => {
-                const info = horariosData[horario] || { ocupadas: 0, disponiveis: 2, disponivel: true };
-
-                const div = document.createElement('div');
-                div.className = 'horario-option';
-                div.innerHTML = `
-                    <input type="radio" 
-                           id="horario_${horario}" 
-                           name="horario" 
-                           value="${horario}" 
-                           ${!info.disponivel ? 'disabled' : ''} 
-                           required>
-                    <label for="horario_${horario}" 
-                           class="horario-label ${!info.disponivel ? 'disabled' : ''}">
-                        ${horario}
-                        <span class="vagas">${info.disponiveis}/2</span>
-                    </label>
-                `;
-                grid.appendChild(div);
-            });
+            // Atualizar estatísticas
+            atualizarEstatisticas(data);
         }
 
-        // Atualizar estatísticas
-        function atualizarEstatisticas(data) {
-            document.getElementById('totalInscricoes').textContent = data.totalInscricoes;
-            document.getElementById('vagasRestantes').textContent = data.vagasRestantes;
+        // Atualizar contador principal de vagas
+        function atualizarVagas(data) {
+            const vagasInfo = document.getElementById('vagasInfo');
+            const vagasRestantes = data.vagasRestantes;
+            const total = data.maxParticipantes || 50;
 
-            document.getElementById('vagasInfo').innerHTML = `
-                Vagas disponíveis: <span style="font-size: 20px;">${data.vagasRestantes}/50</span>
+            vagasInfo.innerHTML = `
+                <div style="font-size: 24px; margin-bottom: 10px;">
+                    Vagas Disponíveis: <strong>${vagasRestantes}/${total}</strong>
+                </div>
+                <div style="font-size: 14px; opacity: 0.8;">
+                    ${vagasRestantes === 0 ? '❌ EVENTO LOTADO!' : 
+                      vagasRestantes <= 5 ? '⚠️ Poucas vagas restantes!' : 
+                      '✅ Ainda há vagas disponíveis!'}
+                </div>
             `;
 
-            if (data.vagasRestantes <= 0) {
-                document.getElementById('submitBtn').disabled = true;
-                document.getElementById('doacaoForm').style.display = 'none';
-                mostrarMensagem('Inscrições encerradas! Limite de participantes atingido.', 'error');
-            }
-        }
 
-        // Máscara CPF
-        document.getElementById('cpf').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length <= 11) {
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-                e.target.value = value;
-            }
-        });
 
-        // Mostrar mensagem
-        function mostrarMensagem(texto, tipo) {
-            const messageBox = document.getElementById('messageBox');
-            messageBox.textContent = texto;
-            messageBox.className = `message ${tipo}`;
-            messageBox.style.display = 'block';
-
-            if (tipo !== 'info') {
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        // Submeter formulário
-        document.getElementById('doacaoForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-
-            const formData = {
-                nomeDoador: document.getElementById('nomeDoador').value.trim(),
-                cpf: document.getElementById('cpf').value,
-                nomeAluno: document.getElementById('nomeAluno').value.trim(),
-                turma: document.getElementById('turma').value.trim(),
-                horario: document.querySelector('input[name="horario"]:checked')?.value
-            };
-
-            if (!formData.horario) {
-                mostrarMensagem('Por favor, selecione um horário!', 'error');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Confirmar Inscrição';
-                return;
-            }
-
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                // Como usamos no-cors, assumimos sucesso se não houver erro
-                mostrarMensagem(`✅ Inscrição realizada com sucesso! Horário: ${formData.horario}`, 'success');
-                this.reset();
-
-                // Aguardar 2 segundos e recarregar dados
-                setTimeout(() => {
-                    carregarDados();
-                }, 2000);
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            } catch (error) {
-                mostrarMensagem('Erro ao enviar inscrição. Tente novamente.', 'error');
-                console.error(error);
-            }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Confirmar Inscrição';
-        });
-
-        // Carregar dados ao iniciar
-        window.addEventListener('load', carregarDados);
-    </script>
-</body>
-</html>
